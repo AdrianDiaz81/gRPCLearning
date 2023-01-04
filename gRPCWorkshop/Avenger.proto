@@ -1,0 +1,24 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+service Avenger {
+  rpc GetAll (google.protobuf.Empty)) returns (GetAllReply);
+  rpc Get (IdAvenger) returns (GetReply);
+}
+message IdAvenger {
+  string name = 1;
+}
+
+message Avenger {
+    string id = 1;
+    string name = 1;
+    string photo= 1;   
+}
+
+message GetAllReply {    
+  repeated Avenger name  = 8;
+}
+
+message GetReply {
+  Avenger message = 1;
+}

@@ -1,0 +1,25 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+option csharp_namespace = "GrpcAvenger";
+
+service Avenger {
+  rpc GetAll (google.protobuf.Empty) returns (GetAllReply);
+  rpc Get (IdAvenger) returns (GetReply);
+}
+message IdAvenger {
+  string name = 1;
+}
+
+message AvengerCharacter {
+    string id = 1;
+    string name = 2;
+    string photo = 3;   
+}
+
+message GetAllReply {    
+  repeated AvengerCharacter name  = 1;
+}
+
+message GetReply {
+  AvengerCharacter message = 1;
+}
